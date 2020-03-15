@@ -41,7 +41,7 @@ void fprintList(Node *head, FILE *outPtr){
     }
 }
 
-void freadList(Node **head, FILE *inPtr){
+int freadList(Node **head, FILE *inPtr){
     
     int numC, numP,i,j;
     Country cBuff;
@@ -69,5 +69,37 @@ void freadList(Node **head, FILE *inPtr){
         cBuff.global_score = 0;
         append(head,getNode(cBuff));
     }
+    return numC;
 
+}
+
+float getMeanScore(Country country){
+    float meanScore = 0.0;
+    int i;
+    for(i=0;i<country.nr_players;i++){
+        meanScore += country.players[i].score;
+    }
+    return (meanScore/country.nr_players);
+}
+
+Node *getNodeWithMinimumScore(Node *head){
+    float min = 999999.0;
+    float score; 
+    Node *p = head->next;
+    Node *buff; 
+    while(p != head){
+        score = getMeanScore(p->data);
+        if(score < min){
+            min = score;
+            buff = p;
+        }
+        p = p->next;
+    }
+    return buff;
+}
+
+void deleteNodeAtAddr(Node *addr){
+    (addr)->prev->next = (addr)->next;
+    (addr)->next->prev = (addr)->prev;
+    free(addr);
 }

@@ -28,4 +28,7 @@ void createList(Node **); //Functie care genereaza o lista dublu inlantuita cu s
 void append(Node **, Node *); //Adauga un element la capatul listei.
 void printList(Node *); //Afiseaza elementele listei.
 void fprintList(Node *, FILE *);//Scrie elementele listei intr-un fisier.
-void freadList(Node **, FILE *);//Citeste elementele unei liste dintr-un fisier
+int freadList(Node **, FILE *);//Citeste elementele unei liste dintr-un fisier
+Node *getNodeWithMinimumScore(Node *);//Intoarce adresa nodului cu cel mai mic scor mediu al jucatorilor.
+float getMeanScore(Country);
+void deleteNodeAtAddr(Node *); //Sterge un nod la o anumita addresa.

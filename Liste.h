@@ -1,3 +1,5 @@
+#ifndef HEADERFILE_H
+#define HEADERFILE_H
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -32,3 +34,4 @@ int freadList(Node **, FILE *);//Citeste elementele unei liste dintr-un fisier
 Node *getNodeWithMinimumScore(Node *);//Intoarce adresa nodului cu cel mai mic scor mediu al jucatorilor.
 float getMeanScore(Country);
 void deleteNodeAtAddr(Node *); //Sterge un nod la o anumita addresa.
+#endif
